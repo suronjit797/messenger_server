@@ -48,7 +48,6 @@ const initSocket = async () => {
           console.log(userId);
           const receiverUsers = await ActiveUserModel.find({ userId }).select({ socketId: 1, _id: 0 });
           const receiverIds = receiverUsers.map((r) => r.socketId);
-          console.log({ receiverIds, userId });
           io.to(receiverIds).emit(MESSAGE_TYPING, { typing: Boolean(status) });
         }
       });

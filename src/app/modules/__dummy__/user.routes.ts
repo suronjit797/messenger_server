@@ -13,7 +13,7 @@ userRouter.post("/register", validatorMiddleware(userCreateValidationZod), userC
 userRouter.post("/login", validatorMiddleware(userLoginValidationZod), userController.loginUser);
 
 // profile of login user
-userRouter.get("/profile", auth(), userController.getProfile);
+// userRouter.get("/profile", auth(), userController.getProfile);
 userRouter.put("/profile", auth(), userController.updateProfile);
 
 // user

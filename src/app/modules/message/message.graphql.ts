@@ -113,7 +113,6 @@ export const messageResolvers = {
 
       const filter = { users };
       const page = paginationHelper(args.pagination || {});
-      console.log({users})
       return await messageService.getAll(page, filter);
     },
 

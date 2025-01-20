@@ -16,7 +16,6 @@ messageServices.create = async (body: IMessage): Promise<Partial<IMessage> | nul
     const receiverUsers = await ActiveUserModel.find({ userId: ids }).select({ socketId: 1, _id: 0 });
     const receiverIds = receiverUsers.map((r) => r.socketId);
 
-    console.log({ receiverIds });
 
     if (receiverIds.length > 0) io.to(receiverIds).emit(SEND_MESSAGE, message);
   } else {
